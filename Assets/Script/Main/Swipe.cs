@@ -36,10 +36,10 @@ public class Swipe : MonoBehaviour
 
         }
 
-        //Did we cross the deadzone?
+        //For Deadzone
         if(SwipeDelta.magnitude > 100)
         {
-            //Which direction?
+            //Direction?
             float x = swipeDelta.x;
             float y = swipeDelta.y;
             if(Mathf.Abs(x) > Mathf.Abs(y))

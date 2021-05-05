@@ -2,18 +2,18 @@
 
 public class Player : MonoBehaviour
 {
-    public Swipe swipeControl;
-
+    [SerializeField]private Swipe swipeControl;
+    [SerializeField] private GameObject gameCamera;
+    [SerializeField]float step = 0.1f;
     Transform player;
-    [SerializeField]float step = 0.05f;
     Vector2 moveDirection;
-    public Vector2 WorldUnitsInCamera;
-    public GameObject Camera;
+    Vector2 WorldUnitsInCamera;
+
 
     private void Awake()
     {
         //Finding Pixel To World Unit Conversion Based On Orthographic Size Of Camera
-        WorldUnitsInCamera.y = Camera.GetComponent<Camera>().orthographicSize * 2;
+        WorldUnitsInCamera.y = gameCamera.GetComponent<Camera>().orthographicSize * 2;
         WorldUnitsInCamera.x = WorldUnitsInCamera.y * Screen.width / Screen.height;
         
     }
@@ -34,11 +34,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Control();
-        SwipeControl();
-        ScreenBound();
+        Control();                  //KeyBoard Control
+        SwipeControl();             //Mobile Control
+        ScreenBound();             
     }
 
+    //Control By Swipe in Screen(Mobile)
     void SwipeControl()
     {
         if (swipeControl.SwipeUp)
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
 
     }
 
+    //Maintain Player in Screen area
     void ScreenBound()
     {
         //right
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
     }
 
 
-
+    //Keyborad Control
     void Control()
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -115,6 +117,7 @@ public class Player : MonoBehaviour
         
     }
 
+    //Movement of Player
     void Move()
     {
         player.up = moveDirection;

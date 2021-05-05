@@ -235,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 1501435803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.53, y: -19.14, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rows: 12
-  columns: 24
+  columns: 20
   scale: 1
   gridPrefabs: {fileID: 8558310801534350444, guid: 6cc5f75f94e46924f90a5a43a6c9dc6c,
     type: 3}
@@ -392,9 +392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeControl: {fileID: 2046491131}
+  gameCamera: {fileID: 519420028}
   step: 0.1
-  WorldUnitsInCamera: {x: 0, y: 0}
-  Camera: {fileID: 519420028}
 --- !u!114 &2046491131
 MonoBehaviour:
   m_ObjectHideFlags: 0
